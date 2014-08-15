@@ -83,6 +83,12 @@
 
 #pragma mark - Text View Delegate
 
+- (void)textViewDidChangeSelection:(UITextView *)textView {
+    if ([self.expandableTableView.delegate respondsToSelector:@selector(tableView:textViewDidChangeSelection:)]) {
+        [(id<ACEExpandableTableViewDelegate>)self.expandableTableView.delegate tableView:self.expandableTableView textViewDidChangeSelection:self.textView];
+    }
+}
+
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
     // make sure the cell is at the top
