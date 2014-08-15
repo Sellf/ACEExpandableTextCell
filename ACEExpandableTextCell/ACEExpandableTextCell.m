@@ -83,6 +83,12 @@
 
 #pragma mark - Text View Delegate
 
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    if ([self.expandableTableView.delegate respondsToSelector:@selector(tableView:textViewDidEndEditing:)]) {
+        [(id<ACEExpandableTableViewDelegate>)self.expandableTableView.delegate tableView:self.expandableTableView textViewDidEndEditing:self.textView];
+    }
+}
+
 - (void)textViewDidChangeSelection:(UITextView *)textView {
     if ([self.expandableTableView.delegate respondsToSelector:@selector(tableView:textViewDidChangeSelection:)]) {
         [(id<ACEExpandableTableViewDelegate>)self.expandableTableView.delegate tableView:self.expandableTableView textViewDidChangeSelection:self.textView];
