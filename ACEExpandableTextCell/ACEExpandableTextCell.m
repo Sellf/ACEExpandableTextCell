@@ -131,7 +131,7 @@
 - (void)textViewDidChange:(UITextView *)theTextView
 {
     
-    if ([self.expandableTableView.delegate respondsToSelector:@selector(tableView:textViewWillBeginEditing:)]) {
+    if ([self.expandableTableView.delegate respondsToSelector:@selector(tableView:textViewDidChange:)]) {
         [(id<ACEExpandableTableViewDelegate>)self.expandableTableView.delegate tableView:self.expandableTableView textViewDidChangeSelection:self.textView];
     }
     
