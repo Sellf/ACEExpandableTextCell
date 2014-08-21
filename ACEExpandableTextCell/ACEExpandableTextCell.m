@@ -95,12 +95,6 @@
     }
 }
 
-- (void)textViewWillBeginEditing:(UITextView*)textView {
-    if ([self.expandableTableView.delegate respondsToSelector:@selector(tableView:textViewWillBeginEditing:)]) {
-        [(id<ACEExpandableTableViewDelegate>)self.expandableTableView.delegate tableView:self.expandableTableView textViewDidChangeSelection:self.textView];
-    }
-}
-
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
     // make sure the cell is at the top
@@ -126,15 +120,21 @@
     [self textViewDidChange:self.textView];
 }
 
-//- (void)textViewDidBeginEditing:(UITextView *)textView
-//{
-//    if ([self.expandableTableView.delegate respondsToSelector:@selector(textViewDidBeginEditing:)]) {
-//        [(id<ACEExpandableTableViewDelegate>)self.expandableTableView.delegate textViewDidBeginEditing:textView];
-//    }
-//}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if ([self.expandableTableView.delegate respondsToSelector:@selector(textViewDidBeginEditing:)]) {
+        [(id<ACEExpandableTableViewDelegate>)self.expandableTableView.delegate textViewDidBeginEditing:textView];
+    }
+}
 
 - (void)textViewDidChange:(UITextView *)theTextView
 {
+    
+    if ([self.expandableTableView.delegate respondsToSelector:@selector(tableView:textViewWillBeginEditing:)]) {
+        [(id<ACEExpandableTableViewDelegate>)self.expandableTableView.delegate tableView:self.expandableTableView textViewDidChangeSelection:self.textView];
+    }
+    
     if ([self.expandableTableView.delegate conformsToProtocol:@protocol(ACEExpandableTableViewDelegate)]) {
         
         id<ACEExpandableTableViewDelegate> delegate = (id<ACEExpandableTableViewDelegate>)self.expandableTableView.delegate;
