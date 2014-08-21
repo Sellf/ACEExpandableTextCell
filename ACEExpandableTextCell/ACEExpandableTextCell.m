@@ -132,7 +132,7 @@
 {
     
     if ([self.expandableTableView.delegate respondsToSelector:@selector(tableView:textViewDidChange:)]) {
-        [(id<ACEExpandableTableViewDelegate>)self.expandableTableView.delegate tableView:self.expandableTableView textViewDidChangeSelection:self.textView];
+        [(id<ACEExpandableTableViewDelegate>)self.expandableTableView.delegate tableView:self.expandableTableView textViewDidChange:self.textView];
     }
     
     if ([self.expandableTableView.delegate conformsToProtocol:@protocol(ACEExpandableTableViewDelegate)]) {
