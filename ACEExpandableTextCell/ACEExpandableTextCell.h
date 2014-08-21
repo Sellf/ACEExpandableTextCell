@@ -33,7 +33,7 @@
 - (void)tableView:(UITableView *)tableView updatedHeight:(CGFloat)height atIndexPath:(NSIndexPath *)indexPath;
 - (void)tableView:(UITableView *)tableView textViewDidChangeSelection:(UITextView*)textView;
 - (void)tableView:(UITableView *)tableView textViewDidEndEditing:(UITextView*)textView;
-- (void)tableView:(UITableView *)tableView textViewDidBeginEditing:(UITextView*)textView;
+- (void)tableView:(UITableView *)tableView textViewWillBeginEditing:(UITextView*)textView;
 @end
 
 #pragma mark -

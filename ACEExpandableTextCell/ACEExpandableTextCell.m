@@ -95,8 +95,8 @@
     }
 }
 
-- (void)textViewDidBeginEditing:(UITextView*)textView {
-    if ([self.expandableTableView.delegate respondsToSelector:@selector(tableView:textViewDidBeginEditing:)]) {
+- (void)textViewWillBeginEditing:(UITextView*)textView {
+    if ([self.expandableTableView.delegate respondsToSelector:@selector(tableView:textViewWillBeginEditing:)]) {
         [(id<ACEExpandableTableViewDelegate>)self.expandableTableView.delegate tableView:self.expandableTableView textViewDidChangeSelection:self.textView];
     }
 }
