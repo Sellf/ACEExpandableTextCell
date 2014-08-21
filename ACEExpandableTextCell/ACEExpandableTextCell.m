@@ -95,6 +95,12 @@
     }
 }
 
+- (void)textViewDidBeginEditing:(UITextView*)textView {
+    if ([self.expandableTableView.delegate respondsToSelector:@selector(tableView:textViewDidBeginEditing:)]) {
+        [(id<ACEExpandableTableViewDelegate>)self.expandableTableView.delegate tableView:self.expandableTableView textViewDidChangeSelection:self.textView];
+    }
+}
+
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
     // make sure the cell is at the top
