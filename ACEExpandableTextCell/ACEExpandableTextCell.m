@@ -66,21 +66,13 @@
 
 - (void)setText:(NSString *)text
 {
-    if(_text.length == 0) _text = nil;
-    
-    if(_text == nil && text == nil) return;
-    
-    // update the cell only if the text was changed
-    if(![_text isEqualToString:text]){
-        
-        _text = text;
+    _text = text;
         
         // update the UI and the cell size with a delay to allow the cell to load
         self.textView.text = text;
         [self performSelector:@selector(textViewDidChange:)
                    withObject:self.textView
                    afterDelay:0.1];
-    }
 }
 
 - (CGFloat)cellHeight
